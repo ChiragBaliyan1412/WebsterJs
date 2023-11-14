@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/complaint.css">
+    <title>Hostel Complaint Panel</title>
+</head>
+<body>
+    <div class="container">
+     <form action="/submit" method="POST">
+        <h1>Hostel Complaint Panel</h1>
+        
+        <div class="dropdowns">
+            <label for="hostelDropdown">Select Hostel:</label>
+            <select name="hostelDropdown" id="hostelDropdown">
+                <option value="hostel1">Hostel 1</option>
+                <option value="hostel2">Hostel 2</option>
+                <option value="hostel2">Hostel 3</option>
+                <option value="hostel2">Hostel 4</option>
+                <option value="hostel2">Hostel 5</option>
+            </select>
+
+            <label for="yearDropdown">Select Year:</label>
+            <select name="yearDropdown" id="yearDropdown">
+                <option value="firstYear">1st Year(B.Tech)</option>
+                <option value="secondYear">3rd Year(B.Tech)</option>
+                <option value="secondYear">4th Year(B.Tech)</option>
+                <option value="secondYear">5th Year(B.Tech)</option>
+            </select>
+        </div>
+
+        <div class="complaint-section">
+            <h2>Complaint Register</h2>
+            <!-- <textarea id="complaintText" placeholder="Type your complaint here..."></textarea> -->
+            <input type="text" id="complaintText" name="complaint" placeholder="Type your complaint here..." required>
+            <!-- <div class="file-input">
+                <label for="complaintImage">Choose File:</label>
+                <input type="file" id="complaintImage" accept="image/*" />
+            </div> -->
+            <div class="buttons">
+                <button onclick="cancelComplaint()" class="transparent-button">Cancel</button>
+                <button type="submit" class="transparent-button">Submit</button>
+            </div>
+        </div>
+       </form>
+    </div>
+
+    <script src="../src/script.js"></script>
+    <script src="../src/app.js"></script>
+</body>
+</html>

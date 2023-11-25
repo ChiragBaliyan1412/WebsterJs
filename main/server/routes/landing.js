@@ -12,7 +12,7 @@ const User = require('../models/users_db');
 
 //GET
 //Landing Page render
-router.get('' , async (req,res)=>{
+router.get('' , async (req,res)=> {
     const local = {
         title : "Imperial Mess",
         descrip : "This is a mess complaints and resolving site"

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Imperial Mess</title>
+  <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/menu.css">
+  <link rel="stylesheet" href="/css/landing3.css">
+  <style>
+
+         #menu::after{
+            content: '';
+            height: 3px;
+            width: 100%;
+            background: #79bdf2;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+  
+  .span-cell{
+    background: transparent;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: static;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+  }
+
+  input{
+    background-color:rgba(220, 252, 255, 0.751);
+    border-style: none;
+    padding: 4px 7px 4px 7px;
+    border-radius: 2px;
+  }
+
+  .btn{
+            background-color: rgba(48, 82, 85, 0.507);
+  }
+
+  .btn:hover{
+      background-color: #68b0e8;
+  }
+
+  .btn2{
+            background-color: rgba(48, 82, 85, 0.507);
+            padding: 5px 8px 3px 8px;
+            font-size: 15px;
+            border-radius: 25px;
+            margin: 0 0 4px 0;
+            color: aliceblue;
+            width: auto;
+            height: auto;
+        }
+  </style>
+</head>
+<body>
+<div class="background">
+   
+    
+  <%- include('./nav.ejs') %>
+
+  <div class="center-content"> 
+    <div class="container">
+      <h2>Mess Menu : <%= hostel %> </h2>
+      
+        
+
+      <table id="menuTable">
+        <tr>
+          <th>Day</th>
+          <th>Breakfast<br><br>(7.45 am - 9 am)</th>
+          <th>Lunch<br><br>(12.30 pm - 2 pm)</th>
+          <th>Snacks<br><br>(5.30 pm - 6.30 pm)</th>
+          <th>Dinner<br><br>(7.45 pm - 9 pm)</th>
+          <th>Action</th>
+        </tr>
+        <% menu.forEach(doc => { %>
+
+          <tr data-id="<%= doc._id %>">
+            
+            
+            <td><%= doc.day %></td>  
+            <!--<input type="text" style="display:none;">-->
+      
+            <% doc.meals.forEach(function(meal) { %>
+              <td>
+                <span class="span-cell">
+                  <%= meal.items%>
+                </span>
+                <!-- <input type="text" style="display:none;"> -->
+              </td>
+            <% }) %>
+      
+            <td>
+              <button class="btn btn2" onclick="editRow('<%= doc._id %>')">Edit</button>
+              <button class="btn btn2" onclick="updateRow('<%= doc._id %>', '<%= doc.number %>' , '<%= doc.day %>')" style="display:none;">Update</button>
+            </td>
+          </tr>
+        <% }) %>
+      </table>
+
+
+        
+      </form>
+    </div>
+  </div> 
+</div>
+
+<script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/menu.js"></script>
+<script src="/js/landing.js"></script>
+
+<script>
+  function editRow(rowId) {
+    const row = document.querySelector(`[data-id="${rowId}"]`);
+    const cells = row.querySelectorAll('td span');
+
+    cells.forEach(cell => {
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = cell.textContent.trim();
+      cell.style.display = 'none';
+      cell.parentNode.appendChild(input);
+    });
+
+    const editButton = row.querySelector('button:nth-of-type(1)');
+    const updateButton = row.querySelector('button:nth-of-type(2)');
+    editButton.style.display = 'none';
+    updateButton.style.display = 'inline';
+  }
+
+  async function updateRow(rowId, number, day) {
+    const row = document.querySelector(`[data-id="${rowId}"]`);
+    const cells = row.querySelectorAll('td span');
+
+    const newItems = {};
+
+    cells.forEach((cell, index) => {
+      const input = cell.nextElementSibling; // Input field
+      newItems[`${index}`] = input.value;
+      cell.textContent = input.value;
+      cell.style.display = 'inline';
+      input.remove();
+    });
+
+    const newData = {  
+    day: day,   // Assuming the day is in the first cell
+    number: number,  // Use the provided number argument
+    meals: [
+      {
+        mealType: "Breakfast",  // Example, replace with actual data
+        items: newItems['0'] 
+      },
+      {
+        mealType: "Lunch",  // Example, replace with actual data
+        items: newItems['1']
+      },
+      {
+        mealType: "Snacks",  // Example, replace with actual data
+        items: newItems['2']
+      },
+      {
+        mealType: "Dinner",  // Example, replace with actual data
+        items: newItems['3']
+      }
+      // ... Add more meals as needed
+      ]
+    };
+
+    const editButton = row.querySelector('button:nth-of-type(1)');
+    const updateButton = row.querySelector('button:nth-of-type(2)');
+    updateButton.style.display = 'none';
+    editButton.style.display = 'inline';
+
+    try {
+      const response = await fetch('/updateData', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ rowId, newData }),
+      });
+
+      const message = await response.text();
+      console.log(message);
+    } catch (error) {
+      console.error('Error updating data:', error);
+    }
+  }
+</script>
+
+
+</body>
+</html>

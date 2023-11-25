@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/landing3.css">
+    <title>Imperial Mess</title>
+    <style>
+        #about::after{
+            content: '';
+            height: 3px;
+            width: 100%;
+            background: #79bdf2;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            transition: 0.5s;
+        }
+        .about_bg{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .about{
+            text-align: center;
+            width: 60%;
+        }
+          
+        p{
+            margin-top: 50px;
+            text-align: justify;
+        }
+        #phone{
+          color: rgba(245, 213, 255, 0.683);
+          line-height: 2;
+        }
+      
+        .phone_hover:hover {
+           color: #f1f1f1;
+           transform: scale(1.05);
+        }
+
+        .fa {
+          
+          text-align: center;
+          text-decoration: none;
+          
+          margin: 0;
+          margin-right: 20px;
+          border-radius: 50%;
+          box-shadow: 0 0 5px rgb(0, 0, 0) inset;
+          transition: 300ms;
+        }
+        
+        .fa:hover {
+          color: #ffffff;
+          box-shadow: 0 0 30px 0 #ffffff;
+          transform: scale(1.2) ;
+          color: #f1f1f1;
+          background-color: rgb(38, 0, 39);
+        }
+
+        .contact{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        </style>
+</head>
+<body>
+
+        
+
+        <div class="background">
+            
+            <%- include('./nav.ejs') %>
+
+           
+            <div class="about_bg">
+                <div class="about">
+                    <h1>We are Team Js</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis harum, accusantium, nostrum possimus placeat voluptate velit a aut, aliquid debitis laudantium? Corporis assumenda expedita veniam, accusantium sequi itaque illo tenetur. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat veritatis porro ducimus perferendis, laudantium esse quidem vel ad, tempora placeat suscipit facere! Quam, dolor quas! Ab eius quisquam aperiam animi?</p>
+                  </div>
+
+                  <div class="info">
+
+                    <div class="contact">
+                        <div id="contact_heading">
+                            Contact Our Team
+                        </div>
+                        <i id="phone">
+
+                            
+                            <div class="phone_hover">
+                                <a href="https://www.instagram.com/niyathi_18/" target="_blank" class="fa fa-instagram"></a>
+                                +91 7668816959 - Niyathi Surthineni
+                            </div>
+                            <div class="phone_hover">
+                                <a href="https://www.instagram.com/rishi_poswal__/" target="_blank" class="fa fa-instagram"></a>
+                                +91 7668816959 - Rishiraj Poswal 
+                            </div>
+                            <div class="phone_hover">
+                                <a href="https://www.instagram.com/chirag_baliyan14/" target="_blank" class="fa fa-instagram"></a>
+                                +91 7042870238 - Chirag Baliyan 
+                            </div>
+                        </i>
+                
+                    </div>
+
+                    
+                </div>
+
+
+            </div>
+              
+            
+
+            
+
+            
+        </div>
+
+        
+        
+    
+
+
+
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/landing.js"></script>
+</body>
+</html>

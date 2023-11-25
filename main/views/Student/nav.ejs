@@ -1,0 +1,35 @@
+<div class="navbar">
+    <div>
+        <img src="/img/student1.png" class="logo student_logo" >
+        <p class="logged"><%= student.username %></p>
+    </div>
+    <div class="overlay" id="myNav">
+         
+        <a href="javascript:void(0)" class="closebtn navOp" onclick="closeNav()">&times;</a>
+        
+        <div class="overlay-content">
+            <div class="flex">
+                <ul>
+                    <li class="navOp" id="home"><a href="/student">Home</a></li>
+                    <li class="navOp" id="complaints"><a href="/student/complaints">All Complaints</a></li>
+                    <li class="navOp" id="menu">
+                        <div class="nav-btn" >Menu
+                            <div class="dropdown">
+                              <a href="/student/menu/SVBH" class="dropdown-item">SVBH</a>
+                              <a href="/student/menu/DJGH" class="dropdown-item">DJGH</a>
+                              <a href="/student/menu/Tilak" class="dropdown-item">Tilak</a>
+                              <a href="/student/menu/KNGH" class="dropdown-item">KNGH</a>
+                              <a href="/student/menu/Patel" class="dropdown-item">Patel</a>
+                            </div>
+                    </li>
+                    <li class="navOp" id="about"><a href="/student/about">About</a></li>
+                    <!-- <li><a href="#">Home</a></li> -->
+                </ul>
+            </div>
+            
+        </div>
+    </div> 
+
+      <button id="navbutton" style="font-size:30px ; cursor:pointer; color: rgb(255, 255, 255);font-weight: lighter;" type="button" onclick="openNav()"><span style="border-radius: 6px;"></span>&#9776;</button>  
+
+</div>

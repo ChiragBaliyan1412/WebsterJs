@@ -1,0 +1,324 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    /* box-sizing: border-box; */
+    font-family: sans-serif;
+}
+
+
+
+
+.background{
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url("../img/deathstar.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    
+    
+}
+
+.navbar{
+    z-index: +1;
+    width: 85%;
+    margin: auto;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+
+}
+
+.navOp::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #79bdf2;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+    
+}
+
+.navOp:hover::after{
+    width: 100%;
+}
+
+.logo{
+    width: 120px;
+    cursor: pointer;
+    display: inline-block;
+    
+}
+
+.heading{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+
+.heading h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.heading p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #79bdf2;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+span{
+    background: #79bdf2;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span{
+    width: 100%;
+}
+
+button:hover{
+    border: none;
+}
+
+.link_btn{
+    color: #fff;
+    text-decoration: none;
+}
+
+.logged{
+    display: inline-block;
+    font-family: sans-serif;
+    line-height: 1.5;
+    font-weight: 700;
+    color: #bdbcbc;
+}
+
+.student_logo{
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.student_logo:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow effect on hover */
+    transform: scale(1.1);
+}
+
+#navbutton{
+    display: none;
+}
+
+.closebtn{
+    display: none;
+}
+
+@media (max-width: 800px) {
+    
+
+    #navbutton{
+        background-color: #79bdf2;
+        display: inline-block;
+        position: relative;
+        /* padding-left: 5px;
+        padding-right:5px; */
+        padding: 1px 5px 1px 5px;
+        border-radius: 6px;
+        width: 39px;
+        
+        background: transparent;
+        border:2px solid #79bdf2;
+    }
+
+    #navbutton:hover{
+        border: none;
+    }
+
+    /* span{
+        background: #79bdf2;
+        height: 100%;
+        width: 0;
+        border-radius: 6px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+        transition: 0.4s;
+    } */
+    
+    .overlay {
+        height: 0%;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgb(0,0,0.9);
+        overflow-y: hidden;
+        transition: 0.5s;
+        opacity: 0.85;
+        
+      }
+
+      .nav-btn{
+        font-size: 20px;
+      }
+      
+      .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        
+      }
+      
+      .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+
+
+      
+      /* .overlay a:hover, .overlay a:focus {
+        color: #ffffff;
+        background-color: rgb(117, 50, 112);
+      } */
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+      }
+      
+      @media screen and (max-height: 800px) {
+        .overlay {overflow-y: auto;}
+        .overlay a {font-size: 20px}
+        .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+        }
+      }
+
+      ul{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* .navOp a{
+        width: 50px;
+      } */
+      
+      
+}
+
+
+/* Menu drop down*/
+.nav-btn {
+    display: inline-block;
+    /* padding: 10px; */
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+  
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding-top: 20px;
+    max-height: 100px; 
+      overflow-y: auto;
+      transition: box-shadow 0.3s ease;
+  }
+
+  .nav-btn:hover .dropdown {
+    display: block;
+
+  }
+
+  /* Dropdown items */
+  .dropdown-item {
+    font-size: 12px;
+    padding: 5px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-item:hover {
+    background-color: #79bdf2;
+  }
+
+  .dropdown::-webkit-scrollbar {
+    width: 3px; /* Set the width of the scrollbar */
+  }
+
+  .dropdown::-webkit-scrollbar-thumb {
+    background-color: #88888822; /* Color of the scrollbar thumb */
+    border-radius: 3px; /* Rounded corners for the thumb */
+  }
+
+  .dropdown::-webkit-scrollbar-track {
+    background-color: transparent; /* Color of the scrollbar track */
+  }
